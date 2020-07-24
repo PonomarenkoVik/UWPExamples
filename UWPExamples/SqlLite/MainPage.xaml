@@ -23,13 +23,29 @@
             <ColumnDefinition Width="0.1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="addButton" Content="Add" Grid.Row="0" Grid.Column="0" FontSize="36" FontStyle="Normal" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15"></Button>
-        <Button x:Name="showButton" Content="Show DataBase" Grid.Row="1" Grid.Column="0" FontSize="36" FontStyle="Normal" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15"></Button>
+        <Button x:Name="addButton" Content="Add" Grid.Row="0" Grid.Column="0" FontSize="36" FontStyle="Normal" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15" Click="addButton_Click"></Button>
+        <Button x:Name="showButton" Content="Show DataBase" Grid.Row="1" Grid.Column="0" FontSize="36" FontStyle="Normal" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15" Click="showButton_Click"></Button>
         <TextBlock Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Name" TextAlignment="Center" FontSize="36" Margin="10"></TextBlock>
         <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Age" TextAlignment="Center" FontSize="36" Margin="10"></TextBlock>
         <TextBox x:Name="nameTextBox" Grid.Column="2" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="36" Margin="10"></TextBox>
         <TextBox x:Name="ageTextBox" Grid.Column="2" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="36" Margin="10"></TextBox>
         
-        <TextBlock x:Name="outPutTextBlock" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="36" Margin="10"></TextBlock>
+        <ListView x:Name="outPutGrid" Grid.Column="2" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontSize="36" Margin="10">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Customer">
+                    <Grid BorderThickness="1" BorderBrush="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"></ColumnDefinition>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width ="50"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding Id}" Margin="5, 0, 5, 0" Grid.Column="0" HorizontalAlignment="Left"></TextBlock>
+                        <TextBlock Text="{Binding Name}" Margin="5, 0, 5, 0" Grid.Column="1" HorizontalAlignment="Left"></TextBlock>
+                        <TextBlock Text="{Binding Age}" Margin="5, 0, 5, 0" Grid.Column="2" HorizontalAlignment="Left"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
