@@ -26,5 +26,36 @@ namespace SQLiteAndEFApp
         {
             this.InitializeComponent();
         }
+
+        private void DeleteButtonClick(object sender, RoutedEventArgs e)
+        {
+            using (var db = new BloggingContext())
+            {
+                var blog = db.Blogs.FirstOrDefault(x => x.Url == url.Text);
+                if (blog != null)
+                    db.Remove(blog);
+                blogs.ItemsSource = db.Blogs.ToList();
+
+            }
+        }
+
+        private void AddButtonClick(object sender, RoutedEventArgs e)
+        {
+            using (var db = new BloggingContext())
+            {
+                var blog = new Blog { Url = url.Text };
+                db.Blogs.Add(blog);
+                db.SaveChanges();
+                blogs.ItemsSource = db.Blogs.ToList();
+            }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (var db = new BloggingContext())
+            {
+                blogs.ItemsSource = db.Blogs.ToList();
+            }
+        }
     }
 }
