@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="BrushesAndFiguresApp.WebViewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BrushesAndFiguresApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <WebView x:Name="webView" Source="http://itvdn.com" Grid.Column="1"></WebView>
+        <Button Content="ITVDN" Height="500" Width="500" Margin="30" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click">
+            <Button.Background>
+                <WebViewBrush x:Name="viewBrush" SourceName="webView"></WebViewBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Page>

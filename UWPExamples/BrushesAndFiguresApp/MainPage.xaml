@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="BrushesAndFiguresApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BrushesAndFiguresApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Width="100" Height="100" Fill="Red" Grid.Row="0" Grid.Column="0"></Rectangle>
+        <Rectangle Width="100" Height="100" Fill="#5500FF00" Grid.Row="0" Grid.Column="1"></Rectangle>
+        <Rectangle Width="100" Height="100" Grid.Row="0" Grid.Column="2">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="Blue" Opacity="0.6"></SolidColorBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Button x:Name="grradientPage" Grid.Row="1" Grid.Column="0" Content="Gradient page" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30" Click="grradientPage_Click"></Button>
+        <Button x:Name="imageBrushPage" Grid.Row="2" Grid.Column="0" Content="ImageBrush page" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30" Click="imageBrushPage_Click"></Button>
+        <Button x:Name="webViewPage" Grid.Row="3" Grid.Column="0" Content="WebView page" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30" Click="webViewPage_Click"></Button>
+    </Grid>
+</Page>
